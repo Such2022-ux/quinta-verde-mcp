@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: quinta-verde-mcp
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    healthCheckPath: /health
+    envVars:
+      - key: APPS_SCRIPT_URL
+        sync: false
+      - key: APPS_SCRIPT_API_KEY
+        sync: false
+      - key: MCP_AUTH_TOKEN
+        sync: false
